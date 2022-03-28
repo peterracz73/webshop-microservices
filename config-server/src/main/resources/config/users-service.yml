@@ -1,0 +1,21 @@
+server:
+  port: 8083
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8085/eureka/
+hu:
+  webuni:
+    tokenlib:
+      keypaths:
+        private: /Users/RAP/certificates/private.pem
+        public: /Users/RAP/certificates/public.pem
+spring:
+  datasource:
+    password: Delfin2x21
+    url: jdbc:postgresql://localhost:5432/webshop-users
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
