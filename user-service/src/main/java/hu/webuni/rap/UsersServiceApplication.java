@@ -22,7 +22,7 @@ public class UsersServiceApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		initDdService.CreateAdminIfNeed();
-		
+		//initDdService.deleteTestUser();
 	}
 
 }

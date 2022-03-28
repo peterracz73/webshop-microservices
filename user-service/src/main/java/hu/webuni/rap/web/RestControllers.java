@@ -27,10 +27,17 @@ public class RestControllers implements UsersApi{
 
 	@Override
 	public String login(LoginDto login) {
-		Authentication authentication = authenticationManager.authenticate(
+		Authentication authentication = null;
+		if (login.getFbToken()==null) {
+			authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword()));
-		
+		}else {
+			String username = userService.createJwtTokenFromFbToken(login.getFbToken());
+			authentication = authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(username, "dummy"));
+		}
 		return "\"" + jwtService.creatJwtToken((UserDetails)authentication.getPrincipal()) + "\"";
+		
 	}
 
 	@Override
@@ -42,7 +49,9 @@ public class RestControllers implements UsersApi{
 
 	@Override
 	public void userRegister(String facebookToken) {
-		// TODO Auto-generated method stub
+		if (userService.regWithFacebook(facebookToken)==null) {
+			throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "The entered username is busy!");
+		}
 	}
 
 }

@@ -16,7 +16,14 @@ public class InitDdService {
 
 	private final UserRepository repository;
 	private final PasswordEncoder passwordEncoder;
-
+	
+	
+	public void deleteTestUser() {
+		Optional<WebshopUser> testUser = repository.findById("Rácz Péter");
+		if (testUser.isPresent()) {
+			repository.delete(testUser.get());
+		}
+	}
 	
 	public void CreateAdminIfNeed() {
 		Optional<WebshopUser> admin = repository.findById("admin");
