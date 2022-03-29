@@ -16,6 +16,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/webshop-users
     username: postgres
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: none
     open-in-view: false
