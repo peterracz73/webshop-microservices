@@ -155,7 +155,7 @@ paths:
       tags:
         - SearchController
     parameters: []
-  /api/catalog/history:
+  /api/catalog/products/history:
     get:
       summary: getProductHistory
       tags:
@@ -176,6 +176,7 @@ paths:
             format: int64
           in: query
           name: productId
+    parameters: []
 components:
   schemas:
     CategoryDto:

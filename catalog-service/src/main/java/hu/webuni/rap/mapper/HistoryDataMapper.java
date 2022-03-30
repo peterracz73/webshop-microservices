@@ -9,6 +9,6 @@ import hu.webuni.rap.model.Product;
 @Mapper(componentModel = "spring")
 public interface HistoryDataMapper {
 
-	ProductHistoryDto productHistoryDataToDto(HistoryData<Product> hd);
+//	ProductHistoryDto productHistoryDataToDto(HistoryData<Product> hd);
 
 }

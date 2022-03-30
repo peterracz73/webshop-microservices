@@ -3,6 +3,7 @@ package hu.webuni.rap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import hu.webuni.rap.service.InitDbService;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableCaching
 public class CatalogServiceApplication implements CommandLineRunner {
 	
 	private final InitDbService initDdService;

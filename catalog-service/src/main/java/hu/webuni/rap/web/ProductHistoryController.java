@@ -15,6 +15,7 @@ import hu.webuni.rap.api.model.ProductHistoryDto;
 import hu.webuni.rap.mapper.HistoryDataMapper;
 import hu.webuni.rap.model.HistoryData;
 import hu.webuni.rap.model.Product;
+import hu.webuni.rap.service.ProductHistoryService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -32,11 +33,7 @@ public class ProductHistoryController implements HistoryControllerApi{
 
 	@Override
 	public ResponseEntity<List<ProductHistoryDto>> getProductHistory(@Valid Long productId) {
-		List<HistoryData<Product>> products = service.getAirportHistory(productId);
-		List<ProductHistoryDto> productHistoryDtos = new ArrayList<>();
-		products.forEach(hd ->{
-			productHistoryDtos.add(mapper.productHistoryDataToDto(hd));
-		});
+		List<ProductHistoryDto> productHistoryDtos = service.getPriceOfProductHistory(productId);
 		return ResponseEntity.ok(productHistoryDtos);
 	}
 

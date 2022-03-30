@@ -31,3 +31,6 @@ spring:
 #              create-target: create.sql
   flyway:
     baseline-on-migrate: true
+  cache:
+    infinispan:
+      config: classpath:infinispan.xml
